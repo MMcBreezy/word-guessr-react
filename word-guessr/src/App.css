@@ -7,14 +7,25 @@
   font-size: larger;
 }
 
-.App-logo {
+.App-logo-spin-left {
+  height: 4vmin;
+  pointer-events: none;
+}
+
+.App-logo-spin-right {
   height: 4vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite .8s linear;
+  .App-logo-spin-left {
+    animation: App-logo-spin-left infinite .8s linear;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo-spin-right {
+    animation: App-logo-spin-right infinite .8s linear;
   }
 }
 
@@ -35,11 +46,20 @@
   padding: 10px
 }
 
-@keyframes App-logo-spin {
+@keyframes App-logo-spin-left {
   from {
     transform: rotate(360deg);
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes App-logo-spin-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
