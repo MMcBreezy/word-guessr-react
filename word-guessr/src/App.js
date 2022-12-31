@@ -1,26 +1,25 @@
-import React from 'react';
-import LogoSpin from './logoSpin.js';
+import React, { useState } from 'react';
+import LandingPage from './landingPage';
+import MainPage from './main'
 import './App.css';
 
 function App() {
+  const [page, setPage] = useState("LandingPage")
+
   return (
     <div className="App">
       <header className="App-header">
-        <LogoSpin />
-        <div className="title">
-          Word Guessr!
-        </div>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Start Game
-        </a>
+          {page === "LandingPage" && <LandingPage />}
+          {page === "MainPage" && <MainPage />}
+          <button
+            className="App-link"
+            onClick={() => setPage("MainPage")}
+            >
+            Start New Game
+            </button>
       </header>
     </div>
-  );
+);
 }
 
 export default App;
