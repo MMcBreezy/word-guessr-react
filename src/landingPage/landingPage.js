@@ -1,6 +1,6 @@
 import React from "react";
-import LogoSpin from "./logoSpin";
-import './App.css';
+import LogoSpin from "../logoSpin/logoSpin";
+import '../App.css';
 
 function LandingPage() {
     return (
