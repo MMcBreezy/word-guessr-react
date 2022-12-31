@@ -1,7 +1,7 @@
 import React from 'react';
-import './mainPage.css';
+import './gamePage.css';
 
-function MainPage () {
+function GamePage () {
   return (
     <div className="App">
       <header className="App-header">
@@ -13,4 +13,4 @@ function MainPage () {
   );
 }
 
-export default MainPage;
+export default GamePage;
