@@ -1,8 +1,9 @@
 .App {
-    text-align: center;
+    padding-top: 100px;
+    min-height: 300px;
 }
   
 .title {
-    color: white;
+    color: beige;
     font-size: larger;
 }
