@@ -15,9 +15,9 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/game" element={<GamePage />} />
         </Routes>
-        <button className="App-link" onClick={() => navigate("/game")}>
-          Start New Game
-        </button>
+        <input type="submit" className="App-link" value="START" onClick={() => navigate("/game")}>
+          {/* Start New Game */}
+        </input>
       </header>
     </div>
   );
