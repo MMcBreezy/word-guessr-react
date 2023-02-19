@@ -16,7 +16,6 @@ function App() {
           <Route path="/game" element={<GamePage />} />
         </Routes>
         <input type="submit" className="App-link" value="START" onClick={() => navigate("/game")}>
-          {/* Start New Game */}
         </input>
       </header>
     </div>
