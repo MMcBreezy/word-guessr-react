@@ -3,13 +3,33 @@ import "./guessrForm.css";
 // import { WordGuessrWord } from "../Word/wordGuessrWord";
 
 function GuessrForm(props) {
-  const word = "test";
+  // const word = "test";
 
-  const [guessedLetters, setLetters] = useState([]);
+  console.log(props.data.data.id);
+
+  const [revealedLetters, setRevealedLetters] = useState(
+    props.data.data.letters
+  );
+  const [guessedLetters, setGuessedLetters] = useState([]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setLetters([...guessedLetters, e.target.guess.value]);
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ "guess": e.target.guess.value })
+    };
+    /*Make another fetch
+    grab ID out of props.data.data.id
+    use ${} for id in URL 
+    use e.target.guess.value in body
+    */
+    fetch(`http://localhost:3001/game/${props.data.data.id}/guess`, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      });
+    setGuessedLetters([...guessedLetters, e.target.guess.value]);
     console.log(guessedLetters);
   };
 
@@ -26,19 +46,17 @@ function GuessrForm(props) {
             fontFamily: "Roboto, system-ui, sans-serif",
           }}
         >
-          {word.split("").map((letter, index) => (
+          {revealedLetters.map((letter, index) => (
             <span
               style={{ borderBottom: ".1em solid beige", borderRadius: "1px" }}
               key={index}
             >
               <span
                 style={{
-                  visibility: guessedLetters.includes(letter)
-                    ? "visible"
-                    : "hidden",
+                  visibility: letter ? "visible" : "hidden",
                 }}
               >
-                {letter}
+                {letter ? letter : "_"}
               </span>
             </span>
           ))}
