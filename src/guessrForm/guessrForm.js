@@ -5,10 +5,10 @@ import "./guessrForm.css";
 function GuessrForm(props) {
   // const word = "test";
 
-  console.log(props.data.data.id);
+  console.log(props.data.id);
 
   const [revealedLetters, setRevealedLetters] = useState(
-    props.data.data.letters
+    props.data.letters
   );
   const [guessedLetters, setGuessedLetters] = useState([]);
 
@@ -20,11 +20,11 @@ function GuessrForm(props) {
       body: JSON.stringify({ "guess": e.target.guess.value })
     };
     /*Make another fetch
-    grab ID out of props.data.data.id
+    grab ID out of props.data.id
     use ${} for id in URL 
     use e.target.guess.value in body
     */
-    fetch(`http://localhost:3001/game/${props.data.data.id}/guess`, requestOptions)
+    fetch(`http://localhost:3001/game/${props.data.id}/guess`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
