@@ -20,17 +20,17 @@ function GuessrForm(props) {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ "guess": e.target.guess.value })
+      body: JSON.stringify({ guess: e.target.guess.value }),
     };
-    /*Make another fetch
-    grab ID out of props.data.data.id
-    use ${} for id in URL 
-    use e.target.guess.value in body
-    */
-    fetch(`http://localhost:3001/game/${props.data.data.id}/guess`, requestOptions)
+   
+    fetch(
+      `http://localhost:3001/game/${props.data.data.id}/guess`,
+      requestOptions
+    )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
+        setRevealedLetters(data.data.letters);
       });
     setGuessedLetters([...guessedLetters, e.target.guess.value]);
     console.log(guessedLetters);
@@ -79,6 +79,20 @@ function GuessrForm(props) {
         </div>
         <input type="submit" className="submitButton" value="Submit" />
       </form>
+      <div
+        style={{
+          display: "flex",
+          gap: ".25em",
+          fontSize: "2rem",
+          fontWeight: "bold",
+          textTransform: "uppercase",
+          fontFamily: "Roboto, system-ui, sans-serif",
+        }}
+      >
+        {guessedLetters.map((letters, index) => (
+          <p key={index}>{letters}</p>
+        ))}
+      </div>
     </div>
   );
 }
