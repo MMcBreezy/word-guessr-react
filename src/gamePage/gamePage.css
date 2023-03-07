@@ -1,9 +1,10 @@
 .App {
-    padding-top: 100px;
+    padding-top: 20%;
     min-height: 300px;
 }
   
 .title {
     color: beige;
     font-size: larger;
+    padding-bottom: 40px;
 }
