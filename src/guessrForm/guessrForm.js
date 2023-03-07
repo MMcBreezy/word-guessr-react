@@ -27,7 +27,7 @@ function GuessrForm(props) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setRevealedLetters(data.data.letters);
+        setRevealedLetters(data.letters);
       });
     setGuessedLetters([...guessedLetters, e.target.guess.value]);
     console.log(guessedLetters);
