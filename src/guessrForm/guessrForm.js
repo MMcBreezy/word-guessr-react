@@ -3,7 +3,7 @@ import "./guessrForm.css";
 
 function GuessrForm(props) {
   const [revealedLetters, setRevealedLetters] = useState(
-    props.data.data.letters
+    props.data.letters
   );
   const [guessedLetters, setGuessedLetters] = useState([]);
 
@@ -22,11 +22,8 @@ function GuessrForm(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ guess: e.target.guess.value }),
     };
-   
-    fetch(
-      `http://localhost:3001/game/${props.data.data.id}/guess`,
-      requestOptions
-    )
+
+    fetch(`http://localhost:3001/game/${props.data.id}/guess`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
