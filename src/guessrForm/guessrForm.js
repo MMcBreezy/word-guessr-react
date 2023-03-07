@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import "./guessrForm.css";
-// import { WordGuessrWord } from "../Word/wordGuessrWord";
 
 function GuessrForm(props) {
-  // const word = "test";
-
-  console.log(props.data.data.id);
-
   const [revealedLetters, setRevealedLetters] = useState(
     props.data.data.letters
   );
