@@ -1,11 +1,12 @@
 .guessTitle {
-  font-size: large;
+  font-size: 18px;
+  padding: auto;
 }
 
 .inputField {
   margin: 8px;
-  width: 25px;
-  font-size: larger;
+  width: 32px;
+  font-size: 1.7rem;
   border-radius: 6px;
   border-style: solid;
   text-align: center;
@@ -27,7 +28,8 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
   border-style: solid;
   font-size: medium;
   padding-top: auto;
+  padding-bottom: 1px;
   border-radius: 3px;
   cursor: pointer;
-  margin-bottom: 200px;
+  margin-bottom: 20px;
 }
