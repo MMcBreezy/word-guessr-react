@@ -6,6 +6,9 @@ function GuessrForm(props) {
     props.data.letters
   );
   const [guessedLetters, setGuessedLetters] = useState([]);
+  const [remainingGuesses, setRemainingGuesses] = useState(
+    props.data.remainingGuesses
+  )
 
   const handleChange = (e) => {
     const val = e.target.value
@@ -28,6 +31,7 @@ function GuessrForm(props) {
       .then((data) => {
         console.log(data);
         setRevealedLetters(data.letters);
+        setRemainingGuesses(data.guessesRemaining)
       });
     setGuessedLetters([...guessedLetters, e.target.guess.value]);
     console.log(guessedLetters);
@@ -74,7 +78,7 @@ function GuessrForm(props) {
             maxLength={props.maxLength}
           />
         </div>
-        <div className="remainingGuesses">remaining guesses:</div>
+        <div className="remainingGuesses">remaining guesses:{remainingGuesses}</div>
         <input type="submit" className="submitButton" value="Submit" />
       </form>
       <div
