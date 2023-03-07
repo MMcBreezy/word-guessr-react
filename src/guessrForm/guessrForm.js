@@ -74,6 +74,7 @@ function GuessrForm(props) {
             maxLength={props.maxLength}
           />
         </div>
+        <div className="remainingGuesses">remaining guesses:</div>
         <input type="submit" className="submitButton" value="Submit" />
       </form>
       <div
