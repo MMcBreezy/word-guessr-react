@@ -7,6 +7,14 @@ function GuessrForm(props) {
   );
   const [guessedLetters, setGuessedLetters] = useState([]);
 
+  const handleChange = (e) => {
+    const val = e.target.value
+    const lettersOnly = new RegExp(/[A-Za-z]/)
+    if (!lettersOnly.test(val)) {
+      e.target.value = ""
+    }
+  }
+
   const submitHandler = (e) => {
     e.preventDefault();
     const requestOptions = {
@@ -65,6 +73,7 @@ function GuessrForm(props) {
             type="text"
             name="guess"
             className="inputField"
+            onChange={handleChange}
             maxLength={props.maxLength}
           />
         </div>
