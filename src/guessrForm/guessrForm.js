@@ -7,7 +7,7 @@ function GuessrForm(props) {
   );
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [remainingGuesses, setRemainingGuesses] = useState(
-    props.data.remainingGuesses
+    props.data.guessesRemaining
   )
 
   const handleChange = (e) => {
