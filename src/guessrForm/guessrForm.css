@@ -1,12 +1,19 @@
+.form {
+  padding-top: 5px;
+}
+
 .guessTitle {
   font-size: 18px;
-  padding: auto;
 }
 
 .remainingGuesses {
   font-size: 15px;
   font-style: italic;
-  padding: auto;
+  padding: 10px;
+}
+
+.inputBox {
+  padding: 5px;
 }
 
 .inputField {
@@ -17,25 +24,25 @@
   border-style: solid;
   text-align: center;
   resize: none;
-  background-color:beige;
+  background-color: beige;
   color: #282c34;
 }
 
-textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
-    border-color: rgb(42, 200, 224);
-    box-shadow: 0 1px 10px rgba(27, 109, 116, 0.075) inset, 0 0 8px rgba(24, 149, 156, 0.6);
-    outline: 0 none;
+textarea:focus,
+input:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  border-color: rgb(42, 200, 224);
+  box-shadow: 0 1px 10px rgba(27, 109, 116, 0.075) inset,
+    0 0 8px rgba(24, 149, 156, 0.6);
+  outline: 0 none;
 }
-
 
 .submitButton {
   color: beige;
   background-color: #282c34;
   border-style: solid;
   font-size: medium;
-  padding-top: auto;
-  padding-bottom: 1px;
   border-radius: 3px;
   cursor: pointer;
-  margin-bottom: 20px;
 }

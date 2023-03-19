@@ -6,6 +6,8 @@ import GuessrForm from "../guessrForm/guessrForm";
 function GamePage() {
   const [gameState, setGameState] = useState({});
   const [loading, setLoading] = useState(true);
+  
+
 
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
@@ -23,16 +25,13 @@ function GamePage() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="title">
-          {loading ? (
-            <LogoSpin /> /*"loading..."*/
-          ) : (
-            <GuessrForm maxLength="1" data={gameState} />
-          )}
-        </div>
-      </header>
+    <div className="wrapper">
+      {loading ? (
+        <LogoSpin /> /*"loading..."*/
+      ) : (
+        <GuessrForm maxLength="1" data={gameState} />
+      )}
+
     </div>
   );
 }
