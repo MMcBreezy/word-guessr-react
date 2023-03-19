@@ -11,6 +11,7 @@ function GuessrForm(props) {
   );
   const [userLost, setUserLost] = useState(false);
   const [userWon, setUserWon] = useState(false);
+  const [userFinished, setUserFinished] = useState(false);
 
   const handleChange = (e) => {
     const val = e.target.value;
@@ -36,6 +37,7 @@ function GuessrForm(props) {
         setRemainingGuesses(data.guessesRemaining);
         setUserLost(data.userLost);
         setUserWon(data.userWon);
+        setUserFinished(data.userFinished);
       });
     if (!guessedLetters.includes(e.target.guess.value)) {
       setGuessedLetters([...guessedLetters, e.target.guess.value]);
@@ -88,6 +90,7 @@ function GuessrForm(props) {
             className="inputField"
             onChange={handleChange}
             maxLength={props.maxLength}
+            disabled={userFinished === true ? true : false}
           />
         </div>
         <input type="submit" className="submitButton" value="Submit" />
