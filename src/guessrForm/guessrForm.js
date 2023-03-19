@@ -13,6 +13,10 @@ function GuessrForm(props) {
   const [userWon, setUserWon] = useState(false);
   const [userFinished, setUserFinished] = useState(false);
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   const handleChange = (e) => {
     const val = e.target.value;
     const lettersOnly = new RegExp(/[A-Za-z]/);
@@ -77,6 +81,18 @@ function GuessrForm(props) {
       </div>
       <div>{userLost ? <LoseGame /> : ""}</div>
       <div>{userWon ? <WonGame /> : ""}</div>
+      <div>
+        {userFinished ? (
+          <input
+            type="submit"
+            className="playAgainButton"
+            value="Play again!"
+            onClick={refreshPage}
+          />
+        ) : (
+          ""
+        )}
+      </div>
       <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
         <div className="remainingGuesses">
