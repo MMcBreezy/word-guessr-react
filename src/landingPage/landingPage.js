@@ -1,26 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import LogoSpin from "../logoSpin/logoSpin";
-import '../App.css';
+import "../App.css";
+import "./landingPage.css";
 
 function LandingPage() {
-    return (
-        <div className="App">
-        <header className="App-header">
-            <LogoSpin />
-            <div className="title">
-            Word Guessr
-            </div>
-            {/* <a
-            className="App-link"
-            href=" "
-            target="_blank"
-            // rel="noopener noreferrer"
-            >
-            Start Game
-            </a> */}
-        </header>
-        </div>
-    );
-};
+  const navigate = useNavigate();
+
+  return (
+    <div className="wrapper">
+      <LogoSpin />
+      <div className="title">Word Guessr</div>
+      <input
+        type="submit"
+        className="App-link start-game-button"
+        value="START"
+        onClick={() => navigate("/game")}
+      ></input>
+    </div>
+  );
+}
 
 export default LandingPage;

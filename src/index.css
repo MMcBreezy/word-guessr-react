@@ -1,7 +1,7 @@
 body {
   text-align: center;
   font-family: Roboto, system-ui, sans-serif;
-    font-size: 81.25%;
+    /* font-size: 81.25%; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
@@ -9,7 +9,8 @@ body {
   flex-direction: column;
   flex-shrink: 0;
   justify-content: center;
-  max-height: 200px;
+  max-height: 300px;
+  min-height: 200px;
 }
 
 code {
