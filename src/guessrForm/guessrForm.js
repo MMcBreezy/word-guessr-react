@@ -84,6 +84,7 @@ function GuessrForm(props) {
       <div>
         {userFinished ? (
           <input
+            autoFocus
             type="submit"
             className="playAgainButton"
             value="Play again!"
