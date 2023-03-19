@@ -40,7 +40,7 @@ function GuessrForm(props) {
     if (!guessedLetters.includes(e.target.guess.value)) {
       setGuessedLetters([...guessedLetters, e.target.guess.value]);
     } else {
-      alert("Already guessed that letter! Spot it.")
+      alert("Already guessed that letter! Stop it.");
     }
     e.target.reset();
   };
@@ -77,6 +77,9 @@ function GuessrForm(props) {
       <div>{userWon ? <WonGame /> : ""}</div>
       <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
+        <div className="remainingGuesses">
+          remaining guesses: {remainingGuesses}
+        </div>
         <div className="inputBox">
           <input
             autoFocus
@@ -86,9 +89,6 @@ function GuessrForm(props) {
             onChange={handleChange}
             maxLength={props.maxLength}
           />
-        </div>
-        <div className="remainingGuesses">
-          remaining guesses: {remainingGuesses}
         </div>
         <input type="submit" className="submitButton" value="Submit" />
       </form>
