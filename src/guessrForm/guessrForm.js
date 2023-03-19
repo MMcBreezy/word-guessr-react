@@ -35,10 +35,14 @@ function GuessrForm(props) {
         setRevealedLetters(data.letters);
         setRemainingGuesses(data.guessesRemaining);
         setUserLost(data.userLost);
-        setUserWon(data.userWon)
+        setUserWon(data.userWon);
       });
-    setGuessedLetters([...guessedLetters, e.target.guess.value]);
-    console.log(guessedLetters);
+    if (!guessedLetters.includes(e.target.guess.value)) {
+      setGuessedLetters([...guessedLetters, e.target.guess.value]);
+    } else {
+      alert("Already guessed that letter! Spot it.")
+    }
+    e.target.reset();
   };
 
   return (
@@ -75,6 +79,7 @@ function GuessrForm(props) {
         <label className="guessTitle">Guess your letter:</label>
         <div className="inputBox">
           <input
+            autoFocus
             type="text"
             name="guess"
             className="inputField"
