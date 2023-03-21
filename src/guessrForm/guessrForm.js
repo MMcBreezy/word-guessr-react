@@ -1,22 +1,29 @@
 import React, { useState } from "react";
 import "./guessrForm.css";
+import LoseGame from "../gameResult/loseGame";
+import WonGame from "../gameResult/wonGame";
 
 function GuessrForm(props) {
-  const [revealedLetters, setRevealedLetters] = useState(
-    props.data.letters
-  );
+  const [revealedLetters, setRevealedLetters] = useState(props.data.letters);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [remainingGuesses, setRemainingGuesses] = useState(
     props.data.guessesRemaining
-  )
+  );
+  const [userLost, setUserLost] = useState(false);
+  const [userWon, setUserWon] = useState(false);
+  const [userFinished, setUserFinished] = useState(false);
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   const handleChange = (e) => {
-    const val = e.target.value
-    const lettersOnly = new RegExp(/[A-Za-z]/)
+    const val = e.target.value;
+    const lettersOnly = new RegExp(/[A-Za-z]/);
     if (!lettersOnly.test(val)) {
-      e.target.value = ""
+      e.target.value = "";
     }
-  }
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -31,54 +38,74 @@ function GuessrForm(props) {
       .then((data) => {
         console.log(data);
         setRevealedLetters(data.letters);
-        setRemainingGuesses(data.guessesRemaining)
+        setRemainingGuesses(data.guessesRemaining);
+        setUserLost(data.userLost);
+        setUserWon(data.userWon);
+        setUserFinished(data.userFinished);
       });
-    setGuessedLetters([...guessedLetters, e.target.guess.value]);
-    console.log(guessedLetters);
+    if (!guessedLetters.includes(e.target.guess.value)) {
+      setGuessedLetters([...guessedLetters, e.target.guess.value]);
+    } else {
+      alert("Already guessed that letter! Stop it.");
+    }
+    e.target.reset();
   };
 
   return (
     <div>
-      <div>
-        <div
-          style={{
-            display: "flex",
-            gap: ".25em",
-            fontSize: "6rem",
-            fontWeight: "bold",
-            textTransform: "uppercase",
-            fontFamily: "Roboto, system-ui, sans-serif",
-          }}
-        >
-          {revealedLetters.map((letter, index) => (
+      <div
+        style={{
+          display: "flex",
+          gap: ".25em",
+          fontSize: "6rem",
+          fontWeight: "bold",
+          textTransform: "uppercase",
+          fontFamily: "Roboto, system-ui, sans-serif",
+          padding: "20px",
+        }}
+      >
+        {revealedLetters.map((letter, index) => (
+          <span
+            style={{ borderBottom: ".1em solid beige", borderRadius: "1px" }}
+            key={index}
+          >
             <span
-              style={{ borderBottom: ".1em solid beige", borderRadius: "1px" }}
-              key={index}
+              style={{
+                visibility: letter ? "visible" : "hidden",
+              }}
             >
-              <span
-                style={{
-                  visibility: letter ? "visible" : "hidden",
-                }}
-              >
-                {letter ? letter : "_"}
-              </span>
+              {letter ? letter : "_"}
             </span>
-          ))}
-        </div>
+          </span>
+        ))}
       </div>
-
-      <form onSubmit={submitHandler}>
+      {userLost ? <LoseGame /> : ""}
+      {userWon ? <WonGame /> : ""}
+      {userFinished && (
+        <input
+          autoFocus
+          type="submit"
+          className="playAgainButton"
+          value="Play again!"
+          onClick={refreshPage}
+        />
+      )}
+      <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
-        <div>
+        <div className="remainingGuesses">
+          remaining guesses: {remainingGuesses}
+        </div>
+        <div className="inputBox">
           <input
+            autoFocus
             type="text"
             name="guess"
             className="inputField"
             onChange={handleChange}
             maxLength={props.maxLength}
+            disabled={userFinished}
           />
         </div>
-        <div className="remainingGuesses">remaining guesses:{remainingGuesses}</div>
         <input type="submit" className="submitButton" value="Submit" />
       </form>
       <div
@@ -89,6 +116,7 @@ function GuessrForm(props) {
           fontWeight: "bold",
           textTransform: "uppercase",
           fontFamily: "Roboto, system-ui, sans-serif",
+          height: "30px",
         }}
       >
         {guessedLetters.map((letters, index) => (
