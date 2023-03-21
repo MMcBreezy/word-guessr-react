@@ -79,21 +79,17 @@ function GuessrForm(props) {
           </span>
         ))}
       </div>
-      <div>{userLost ? <LoseGame /> : ""}</div>
-      <div>{userWon ? <WonGame /> : ""}</div>
-      <div>
-        {userFinished ? (
-          <input
-            autoFocus
-            type="submit"
-            className="playAgainButton"
-            value="Play again!"
-            onClick={refreshPage}
-          />
-        ) : (
-          ""
-        )}
-      </div>
+      {userLost ? <LoseGame /> : ""}
+      {userWon ? <WonGame /> : ""}
+      {userFinished && (
+        <input
+          autoFocus
+          type="submit"
+          className="playAgainButton"
+          value="Play again!"
+          onClick={refreshPage}
+        />
+      )}
       <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
         <div className="remainingGuesses">
@@ -107,7 +103,7 @@ function GuessrForm(props) {
             className="inputField"
             onChange={handleChange}
             maxLength={props.maxLength}
-            disabled={userFinished === true ? true : false}
+            disabled={userFinished}
           />
         </div>
         <input type="submit" className="submitButton" value="Submit" />
