@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./guessrForm.css";
 import LoseGame from "../gameResult/loseGame";
 import WonGame from "../gameResult/wonGame";
+import RevealedLetters from "../gamePage/revealedLetters";
 
 function GuessrForm(props) {
   const [revealedLetters, setRevealedLetters] = useState(props.data.letters);
@@ -53,32 +54,7 @@ function GuessrForm(props) {
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          gap: ".25em",
-          fontSize: "6rem",
-          fontWeight: "bold",
-          textTransform: "uppercase",
-          fontFamily: "Roboto, system-ui, sans-serif",
-          padding: "20px",
-        }}
-      >
-        {revealedLetters.map((letter, index) => (
-          <span
-            style={{ borderBottom: ".1em solid beige", borderRadius: "1px" }}
-            key={index}
-          >
-            <span
-              style={{
-                visibility: letter ? "visible" : "hidden",
-              }}
-            >
-              {letter ? letter : "_"}
-            </span>
-          </span>
-        ))}
-      </div>
+      <RevealedLetters revealedLetters={revealedLetters} />
       {userLost ? <LoseGame /> : ""}
       {userWon ? <WonGame /> : ""}
       {userFinished && (
