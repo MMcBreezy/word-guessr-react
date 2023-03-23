@@ -3,6 +3,7 @@ import "./guessrForm.css";
 import LoseGame from "../gameResult/loseGame";
 import WonGame from "../gameResult/wonGame";
 import RevealedLetters from "../gamePage/revealedLetters";
+import RemainingGuesses from "../gamePage/remainingGuesses";
 
 function GuessrForm(props) {
   const [revealedLetters, setRevealedLetters] = useState(props.data.letters);
@@ -68,9 +69,7 @@ function GuessrForm(props) {
       )}
       <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
-        <div className="remainingGuesses">
-          remaining guesses: {remainingGuesses}
-        </div>
+        <RemainingGuesses remainingGuesses={remainingGuesses} />
         <div className="inputBox">
           <input
             autoFocus
