@@ -13,3 +13,12 @@
   border-bottom: 0.1em solid beige;
   border-radius: 1px;
 }
+
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
