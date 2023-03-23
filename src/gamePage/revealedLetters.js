@@ -7,11 +7,9 @@ function RevealedLetters(props) {
       {props.revealedLetters.map((letter, index) => (
         <span className="spaces" key={index}>
           <span
-            style={{
-              visibility: letter ? "visible" : "hidden",
-            }}
+            className={letter ? "visible" : "hidden"}
           >
-            {letter ? letter : "_"}
+            {letter || "_"}
           </span>
         </span>
       ))}
