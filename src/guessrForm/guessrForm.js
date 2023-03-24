@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./guessrForm.css";
-// import LoseGame from "../gameResult/loseGame";
-// import WonGame from "../gameResult/wonGame";
 import RevealedLetters from "../gamePage/revealedLetters";
 import RemainingGuesses from "../gamePage/remainingGuesses";
 import GameResultModal from "../gameResult/gameResultModal";
@@ -52,6 +50,7 @@ function GuessrForm(props) {
     e.target.reset();
   };
 
+
   return (
     <div>
       <RevealedLetters revealedLetters={revealedLetters} />
@@ -79,17 +78,7 @@ function GuessrForm(props) {
         </div>
         <input type="submit" className="submitButton" value="Submit" />
       </form>
-      <div
-        style={{
-          display: "flex",
-          gap: ".25em",
-          fontSize: "2rem",
-          fontWeight: "bold",
-          textTransform: "uppercase",
-          fontFamily: "Roboto, system-ui, sans-serif",
-          height: "30px",
-        }}
-      >
+      <div className="guessedLetters">
         {guessedLetters.map((letters, index) => (
           <p key={index}>{letters}</p>
         ))}
