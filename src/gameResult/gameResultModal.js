@@ -27,21 +27,3 @@ function GameResultModal(props) {
 }
 
 export default GameResultModal;
-
-// {
-//   userLost ? <LoseGame /> : "";
-// }
-// {
-//   userWon ? <WonGame /> : "";
-// }
-// {
-//   userFinished && (
-//     <input
-//       autoFocus
-//       type="submit"
-//       className="playAgainButton"
-//       value="Play again!"
-//       onClick={refreshPage}
-//     />
-//   );
-// }
