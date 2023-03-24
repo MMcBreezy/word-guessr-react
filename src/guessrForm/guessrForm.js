@@ -3,6 +3,7 @@ import "./guessrForm.css";
 import RevealedLetters from "../gamePage/revealedLetters";
 import RemainingGuesses from "../gamePage/remainingGuesses";
 import GameResultModal from "../gameResult/gameResultModal";
+import GuessedLetters from "../gamePage/guessedLetters";
 
 function GuessrForm(props) {
   const [revealedLetters, setRevealedLetters] = useState(props.data.letters);
@@ -78,11 +79,7 @@ function GuessrForm(props) {
         </div>
         <input type="submit" className="submitButton" value="Submit" />
       </form>
-      <div className="guessedLetters">
-        {guessedLetters.map((letters, index) => (
-          <p key={index}>{letters}</p>
-        ))}
-      </div>
+      <GuessedLetters guessedLetters={guessedLetters} />
     </div>
   );
 }
