@@ -5,7 +5,7 @@ function RemainingGuesses(props) {
 
   return (
     <div className="guessesRemaining">
-      guesses remaining: {props.remainingGuesses}
+      guesses remaining: <span className="guessesRemainingProps">{props.remainingGuesses}</span>
     </div>
   );
 }
