@@ -4,7 +4,7 @@ function LoseGame() {
     return (
         <div style={{
             color: "red",
-            fontSize: "45px",
+            fontSize: "65px",
             fontWeight: "bold"
         }}>
             YOU LOST!
