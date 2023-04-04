@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./guessrForm.css";
-import LoseGame from "../gameResult/loseGame";
-import WonGame from "../gameResult/wonGame";
 import RevealedLetters from "../gamePage/revealedLetters";
 import RemainingGuesses from "../gamePage/remainingGuesses";
+import GameResultModal from "../gameResult/gameResultModal";
+import GuessedLetters from "../gamePage/guessedLetters";
 
 function GuessrForm(props) {
   const [revealedLetters, setRevealedLetters] = useState(props.data.letters);
@@ -14,10 +14,7 @@ function GuessrForm(props) {
   const [userLost, setUserLost] = useState(false);
   const [userWon, setUserWon] = useState(false);
   const [userFinished, setUserFinished] = useState(false);
-
-  function refreshPage() {
-    window.location.reload(false);
-  }
+  const [revealedWord, setRevealedWord] = useState(props.data.revealedWord);
 
   const handleChange = (e) => {
     const val = e.target.value;
@@ -44,6 +41,7 @@ function GuessrForm(props) {
         setUserLost(data.userLost);
         setUserWon(data.userWon);
         setUserFinished(data.userFinished);
+        setRevealedWord(data.revealedWord);
       });
     if (!guessedLetters.includes(e.target.guess.value)) {
       setGuessedLetters([...guessedLetters, e.target.guess.value]);
@@ -56,20 +54,17 @@ function GuessrForm(props) {
   return (
     <div>
       <RevealedLetters revealedLetters={revealedLetters} />
-      {userLost ? <LoseGame /> : ""}
-      {userWon ? <WonGame /> : ""}
-      {userFinished && (
-        <input
-          autoFocus
-          type="submit"
-          className="playAgainButton"
-          value="Play again!"
-          onClick={refreshPage}
-        />
-      )}
+      <GameResultModal
+        userLost={userLost}
+        userWon={userWon}
+        userFinished={userFinished}
+        revealedWord={revealedWord}
+      />
       <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
-        <RemainingGuesses remainingGuesses={remainingGuesses} />
+        <div>
+          <RemainingGuesses remainingGuesses={remainingGuesses} />
+        </div>
         <div className="inputBox">
           <input
             autoFocus
@@ -83,21 +78,7 @@ function GuessrForm(props) {
         </div>
         <input type="submit" className="submitButton" value="Submit" />
       </form>
-      <div
-        style={{
-          display: "flex",
-          gap: ".25em",
-          fontSize: "2rem",
-          fontWeight: "bold",
-          textTransform: "uppercase",
-          fontFamily: "Roboto, system-ui, sans-serif",
-          height: "30px",
-        }}
-      >
-        {guessedLetters.map((letters, index) => (
-          <p key={index}>{letters}</p>
-        ))}
-      </div>
+      <GuessedLetters guessedLetters={guessedLetters} />
     </div>
   );
 }
