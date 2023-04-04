@@ -51,7 +51,6 @@ function GuessrForm(props) {
     e.target.reset();
   };
 
-
   return (
     <div>
       <RevealedLetters revealedLetters={revealedLetters} />
