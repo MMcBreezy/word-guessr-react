@@ -5,7 +5,7 @@ function WonGame() {
         <div
         style={{
             color: "green",
-            fontSize: "45px",
+            fontSize: "65px",
             fontWeight: "bold"
         }}
         >
