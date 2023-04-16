@@ -32,7 +32,7 @@ function GuessrForm(props) {
       body: JSON.stringify({ guess: e.target.guess.value }),
     };
 
-    fetch(`http://localhost:3001/game/${props.data.id}/guess`, requestOptions)
+    fetch(`${process.env.REACT_APP_API_URL}/game/${props.data.id}/guess`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
