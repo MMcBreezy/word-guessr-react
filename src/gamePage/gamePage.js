@@ -16,7 +16,7 @@ function GamePage() {
       headers: { "Content-Type": "application/json" },
     };
     setLoading(true);
-    fetch("http://localhost:3001/game", requestOptions)
+    fetch(`${process.env.REACT_APP_API_URL}/game`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         setGameState(data);
