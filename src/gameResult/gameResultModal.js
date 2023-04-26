@@ -14,7 +14,7 @@ function GameResultModal({ gameState }) {
     userFinished && (
       <div className="gameResultModal">
         <h2>{userLost ? <LoseGame /> : <WonGame />}</h2>
-        <p className="line">The word was:</p> 
+        <p className="line">The word was:</p>
         <p className="word">{revealedWord}</p>
         <input
           autoFocus
