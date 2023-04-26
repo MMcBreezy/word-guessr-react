@@ -25,7 +25,7 @@ function GamePage() {
   return (
     <div className="wrapper">
       {loading ? (
-        <LogoSpin /> /*"loading..."*/
+        <LogoSpin aria-label="Loading" />
       ) : (
         <>
           <RevealedLetters revealedLetters={gameState.letters} />
