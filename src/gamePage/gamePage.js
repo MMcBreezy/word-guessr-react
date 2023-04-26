@@ -12,13 +12,12 @@ function GamePage() {
   const [loading, setLoading] = useState(true);
   const [guessedLetters, setGuessedLetters] = useState([]);
 
-  
   useEffect(() => {
     setLoading(true);
     const handleData = (data) => {
       setGameState(data);
       setLoading(false);
-    }
+    };
 
     newGame(handleData);
   }, []);
@@ -30,10 +29,15 @@ function GamePage() {
       ) : (
         <>
           <RevealedLetters revealedLetters={gameState.letters} />
-          <GuessrForm maxLength="1" data={gameState} setGameState={setGameState} setGuessedLetters={setGuessedLetters} guessedLetters={guessedLetters}/>
+          <GuessrForm
+            maxLength="1"
+            data={gameState}
+            setGameState={setGameState}
+            setGuessedLetters={setGuessedLetters}
+            guessedLetters={guessedLetters}
+          />
           <GameResultModal gameState={gameState} />
           <GuessedLetters guessedLetters={guessedLetters} />
-
         </>
       )}
     </div>
