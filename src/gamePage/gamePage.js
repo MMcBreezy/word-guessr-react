@@ -15,8 +15,13 @@ function GamePage() {
   useEffect(() => {
     setLoading(true);
     const handleData = (data) => {
-      setGameState(data);
-      setLoading(false);
+      if (data.error) {
+        setGameState(data);
+        setLoading(false);
+      } else {
+        setGameState(data);
+        setLoading(false);
+      }
     };
 
     newGame(handleData);
@@ -28,16 +33,22 @@ function GamePage() {
         <LogoSpin aria-label="Loading" />
       ) : (
         <>
-          <RevealedLetters revealedLetters={gameState.letters} />
-          <GuessrForm
-            maxLength="1"
-            data={gameState}
-            setGameState={setGameState}
-            setGuessedLetters={setGuessedLetters}
-            guessedLetters={guessedLetters}
-          />
-          <GameResultModal gameState={gameState} />
-          <GuessedLetters guessedLetters={guessedLetters} />
+          {gameState.error ? (
+            <div className="error-message">{gameState.error}</div>
+          ) : (
+            <>
+              <RevealedLetters revealedLetters={gameState.letters} />
+              <GuessrForm
+                maxLength="1"
+                data={gameState}
+                setGameState={setGameState}
+                setGuessedLetters={setGuessedLetters}
+                guessedLetters={guessedLetters}
+              />
+              <GameResultModal gameState={gameState} />
+              <GuessedLetters guessedLetters={guessedLetters} />
+            </>
+          )}
         </>
       )}
     </div>
