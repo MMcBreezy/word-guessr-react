@@ -48,6 +48,7 @@ function GuessrForm(props) {
             onChange={handleChange}
             maxLength={props.maxLength}
             disabled={gameState.userFinished}
+            autocomplete="off"
           />
         </div>
         <input type="submit" className="submitButton" value="Submit" />
