@@ -4,7 +4,6 @@ import LandingPage from "./landingPage/landingPage";
 import GamePage from "./gamePage/gamePage";
 import "./App.css";
 
-
 function App() {
   return (
     <div className="App">
