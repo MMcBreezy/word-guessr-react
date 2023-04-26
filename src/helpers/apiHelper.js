@@ -20,6 +20,9 @@ module.exports = {
         .then((response) => response.json())
         .then((data) => {
             callback(data);
+        })
+        .catch((error) => {
+            callback({ error: "Unable to connect..." });
         });
     },
-}
+};
