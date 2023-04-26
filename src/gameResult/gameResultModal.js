@@ -3,17 +3,19 @@ import "./gameResultModal.css";
 import LoseGame from "../gameResult/loseGame";
 import WonGame from "../gameResult/wonGame";
 
-function GameResultModal(props) {
+function GameResultModal({ gameState }) {
+  const { userLost, userFinished, revealedWord } = gameState;
+
   function refreshPage() {
     window.location.reload(false);
   }
 
   return (
-    props.userFinished && (
+    userFinished && (
       <div className="gameResultModal">
-        <h2>{props.userLost ? <LoseGame /> : <WonGame />}</h2>
+        <h2>{userLost ? <LoseGame /> : <WonGame />}</h2>
         <p className="line">The word was:</p> 
-        <p className="word">{props.revealedWord}</p>
+        <p className="word">{revealedWord}</p>
         <input
           autoFocus
           type="submit"

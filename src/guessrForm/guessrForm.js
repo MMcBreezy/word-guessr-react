@@ -4,17 +4,11 @@ import RevealedLetters from "../gamePage/revealedLetters";
 import RemainingGuesses from "../gamePage/remainingGuesses";
 import GameResultModal from "../gameResult/gameResultModal";
 import GuessedLetters from "../gamePage/guessedLetters";
+import { submitGuess } from "../helpers/apiHelper";
 
 function GuessrForm(props) {
-  const [revealedLetters, setRevealedLetters] = useState(props.data.letters);
   const [guessedLetters, setGuessedLetters] = useState([]);
-  const [remainingGuesses, setRemainingGuesses] = useState(
-    props.data.guessesRemaining
-  );
-  const [userLost, setUserLost] = useState(false);
-  const [userWon, setUserWon] = useState(false);
-  const [userFinished, setUserFinished] = useState(false);
-  const [revealedWord, setRevealedWord] = useState(props.data.revealedWord);
+  const [gameState, setGameState] = useState(props.data);
 
   const handleChange = (e) => {
     const val = e.target.value;
@@ -26,23 +20,14 @@ function GuessrForm(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ guess: e.target.guess.value }),
+
+    const handleApiData = (data) => {
+      console.log(data);
+      setGameState(data);
     };
 
-    fetch(`${process.env.REACT_APP_API_URL}/game/${props.data.id}/guess`, requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setRevealedLetters(data.letters);
-        setRemainingGuesses(data.guessesRemaining);
-        setUserLost(data.userLost);
-        setUserWon(data.userWon);
-        setUserFinished(data.userFinished);
-        setRevealedWord(data.revealedWord);
-      });
+    submitGuess(props.data.id, e.target.guess.value, handleApiData);
+
     if (!guessedLetters.includes(e.target.guess.value)) {
       setGuessedLetters([...guessedLetters, e.target.guess.value]);
     } else {
@@ -53,17 +38,12 @@ function GuessrForm(props) {
 
   return (
     <div>
-      <RevealedLetters revealedLetters={revealedLetters} />
-      <GameResultModal
-        userLost={userLost}
-        userWon={userWon}
-        userFinished={userFinished}
-        revealedWord={revealedWord}
-      />
+      <RevealedLetters revealedLetters={gameState.letters} />
+      <GameResultModal gameState={gameState} />
       <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
         <div>
-          <RemainingGuesses remainingGuesses={remainingGuesses} />
+          <RemainingGuesses remainingGuesses={gameState.guessesRemaining} />
         </div>
         <div className="inputBox">
           <input
@@ -73,7 +53,7 @@ function GuessrForm(props) {
             className="inputField"
             onChange={handleChange}
             maxLength={props.maxLength}
-            disabled={userFinished}
+            disabled={gameState.userFinished}
           />
         </div>
         <input type="submit" className="submitButton" value="Submit" />
