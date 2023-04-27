@@ -1,0 +1,143 @@
+:root {
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.guessedLetters,
+.letters {
+  display: flex;
+  gap: 0.25em;
+  font-size: 2rem;
+  font-style: bold;
+  text-transform: uppercase;
+  font-family: var(--font-family);
+}
+
+.guessedLettersHeader,
+.remainingGuesses {
+  font-size: 1rem;
+  font-style: bold;
+  text-transform: uppercase;
+  font-family: var(--font-family);
+}
+
+.guessedLettersHeader {
+  padding-top: 20px;
+  color: aqua;
+}
+
+.guessesRemainingProps {
+  color: rgb(236, 81, 81);
+  font-weight: bold;
+}
+
+.guessTitle {
+  font-size: 18px;
+}
+
+.inputField {
+  margin: 8px;
+  width: 32px;
+  font-size: 1.7rem;
+  border: 2px solid beige;
+  border-radius: 6px;
+  text-align: center;
+  resize: none;
+  background-color: beige;
+  color: #282c34;
+}
+
+textarea:focus,
+input:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  border-color: rgb(42, 200, 224);
+  box-shadow: 0 1px 10px rgba(27, 109, 116, 0.075) inset,
+    0 0 8px rgba(24, 149, 156, 0.6);
+  outline: 0 none;
+}
+
+.submitButton,
+.playAgainButton {
+  color: beige;
+  background-color: #282c34;
+  border: 2px solid;
+  font-size: medium;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(27, 109, 116, 0.075) inset,
+    0 0 8px rgba(24, 149, 156, 0.6);
+}
+
+.playAgainButton {
+  color: rgb(42, 200, 224);
+  border-color: rgb(42, 200, 224);
+  box-shadow: 0 10px 10px rgba(27, 109, 116, 0.075) inset,
+    0 0 8px rgba(24, 149, 156, 0.6);
+}
+
+.remainingGuesses,
+.guessesRemaining {
+  font-size: 13px;
+  font-style: italic;
+  padding: 4px;
+  color: beige;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.letters {
+  font-size: 6rem;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.spaces {
+  border-bottom: 0.1em solid beige;
+  border-radius: 1px;
+}
+
+.gameResultModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.819);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wordWas {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.word {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(42, 200, 224);
+  text-transform: uppercase;
+}
+
+.wonGame {
+  color: rgb(105, 200, 105);
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.lostGame {
+  color: rgb(236, 81, 81);
+  font-size: 65px;
+  font-weight: bold;
+}

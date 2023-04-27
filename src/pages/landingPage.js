@@ -1,14 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import LogoSpin from "../logoSpin/logoSpin";
+import LogoSpin from "../components/logoSpin";
 import "../App.css";
-import "./landingPage.css";
+import "./styles.scss";
 
 function LandingPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="wrapper">
+    <div className="landingPageWrapper">
       <LogoSpin />
       <div className="title">Word Guessr</div>
       <input

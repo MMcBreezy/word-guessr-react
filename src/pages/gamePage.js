@@ -1,11 +1,11 @@
 import { React, useEffect, useState } from "react";
-import LogoSpin from "../logoSpin/logoSpin";
-import "./gamePage.css";
-import GuessrForm from "../guessrForm/guessrForm";
+import LogoSpin from "../components/logoSpin";
+import "./styles.scss";
+import GuessrForm from "../components/guessrForm";
 import { newGame } from "../helpers/apiHelper";
-import RevealedLetters from "./revealedLetters";
-import GameResultModal from "../gameResult/gameResultModal";
-import GuessedLetters from "./guessedLetters";
+import RevealedLetters from "../components/revealedLetters";
+import GameResultModal from "../components/gameResultModal";
+import GuessedLetters from "../components/guessedLetters";
 
 function GamePage() {
   const [gameState, setGameState] = useState({});
@@ -28,9 +28,9 @@ function GamePage() {
   }, []);
 
   return (
-    <div className="wrapper">
+    <div className="gamePageWrapper">
       {loading ? (
-        <LogoSpin aria-label="Loading" />
+        <LogoSpin />
       ) : (
         <>
           {gameState.error ? (

@@ -1,6 +1,6 @@
 import React from "react";
-import "./guessrForm.css";
-import RemainingGuesses from "../gamePage/remainingGuesses";
+import "./styles.css";
+import RemainingGuesses from "./remainingGuesses";
 import { submitGuess } from "../helpers/apiHelper";
 
 function GuessrForm(props) {
