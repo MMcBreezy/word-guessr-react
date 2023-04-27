@@ -1,5 +1,5 @@
 import React from "react";
-import "./revealedLetters.css";
+import "./styles.css";
 
 function RevealedLetters(props) {
   return (

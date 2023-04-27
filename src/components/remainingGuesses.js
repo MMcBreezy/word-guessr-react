@@ -1,5 +1,5 @@
 import { React } from "react";
-import "./remainingGuesses.css";
+import "./styles.css";
 
 function RemainingGuesses(props) {
   return (

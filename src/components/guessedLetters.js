@@ -1,5 +1,5 @@
 import React from "react";
-import "./guessedLetters.css";
+import "./styles.css";
 
 function GuessedLetters(props) {
   return (
