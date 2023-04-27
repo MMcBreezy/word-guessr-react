@@ -1,35 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 import RemainingGuesses from "./remainingGuesses";
 import { submitGuess } from "../helpers/apiHelper";
 
-function GuessrForm(props) {
-  const gameState = props.data;
+function GuessrForm({
+  data,
+  setGameState,
+  guessedLetters,
+  setGuessedLetters,
+  maxLength,
+}) {
+  const [guess, setGuess] = useState("");
 
   const handleChange = (e) => {
-    const val = e.target.value;
     const lettersOnly = new RegExp(/[A-Za-z]/);
-    if (!lettersOnly.test(val)) {
-      e.target.value = "";
+    if (lettersOnly.test(e.target.value)) {
+      setGuess(e.target.value);
     }
+  };
+
+  const handleApiData = (data) => {
+    console.log(data);
+    setGameState(data);
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    const handleApiData = (data) => {
-      console.log(data);
-      props.setGameState(data);
-    };
-
-    submitGuess(props.data.id, e.target.guess.value, handleApiData);
-
-    if (!props.guessedLetters.includes(e.target.guess.value)) {
-      props.setGuessedLetters([...props.guessedLetters, e.target.guess.value]);
+    if (!guessedLetters.includes(guess)) {
+      submitGuess(data.id, guess, handleApiData);
+      setGuessedLetters([...guessedLetters, guess]);
     } else {
       alert("Already guessed that letter! Stop it.");
     }
-    e.target.reset();
+    setGuess("");
   };
 
   return (
@@ -37,7 +40,7 @@ function GuessrForm(props) {
       <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
         <div>
-          <RemainingGuesses remainingGuesses={gameState.guessesRemaining} />
+          <RemainingGuesses remainingGuesses={data.guessesRemaining} />
         </div>
         <div className="inputBox">
           <input
@@ -45,9 +48,10 @@ function GuessrForm(props) {
             type="text"
             name="guess"
             className="inputField"
+            value={guess}
             onChange={handleChange}
-            maxLength={props.maxLength}
-            disabled={gameState.userFinished}
+            maxLength={maxLength}
+            disabled={data.userFinished}
             autoComplete="off"
           />
         </div>
