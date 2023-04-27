@@ -1,5 +1,5 @@
 module.exports = {
-  submitGuess: async function (id, guess, callback) {
+  submitGuess: function (id, guess, callback) {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
