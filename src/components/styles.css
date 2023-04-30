@@ -3,6 +3,7 @@
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+/* Default styles */
 .guessedLetters,
 .letters {
   display: flex;
@@ -92,12 +93,87 @@ input[type]:focus,
   visibility: visible;
 }
 
-.letters {
-  font-size: 6rem;
-  font-weight: bold;
-  padding: 20px;
+/* Styles for smaller screens */
+@media (max-width: 480px) {
+  .letters {
+    font-size: 4rem;
+    padding: 10px;
+  }
+
+  .guessedLetters,
+  .letters {
+    flex-wrap: wrap;
+  }
+
+  .inputField {
+    width: 22px;
+    font-size: 1.5rem;
+  }
+
+  .submitButton,
+  .playAgainButton {
+    font-size: small;
+  }
+
+  .guessesRemainingProps {
+    font-size: 12px;
+  }
+
+  .word {
+    font-size: 1.5rem;
+  }
+
+  .wordWas {
+    font-size: 16px;
+  }
+
+  .guessedLettersHeader,
+  .remainingGuesses {
+    font-size: 0.8rem;
+  }
 }
 
+/* Styles for larger screens */
+@media (min-width: 768px) {
+  .letters {
+    font-size: 6rem;
+    padding: 20px;
+  }
+
+  .guessedLetters,
+  .letters {
+    flex-wrap: nowrap;
+  }
+
+  .inputField {
+    width: 40px;
+    font-size: 2rem;
+  }
+
+  .submitButton,
+  .playAgainButton {
+    font-size: large;
+  }
+
+  .guessesRemainingProps {
+    font-size: 16px;
+  }
+
+  .word {
+    font-size: 3rem;
+  }
+
+  .wordWas {
+    font-size: 24px;
+  }
+
+  .guessedLettersHeader,
+  .remainingGuesses {
+    font-size: 1.2rem;
+  }
+}
+
+/* Common styles for all screen sizes */
 .spaces {
   border-bottom: 0.1em solid beige;
   border-radius: 1px;
@@ -116,18 +192,6 @@ input[type]:focus,
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.wordWas {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.word {
-  font-size: 2rem;
-  font-weight: bold;
-  color: rgb(42, 200, 224);
-  text-transform: uppercase;
 }
 
 .wonGame {
