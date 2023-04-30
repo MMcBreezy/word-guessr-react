@@ -12,8 +12,9 @@ function GamePage() {
   const [loading, setLoading] = useState(true);
   const [guessedLetters, setGuessedLetters] = useState([]);
 
-  useEffect(() => {
+  const resetGame = () => {
     setLoading(true);
+    setGuessedLetters([]);
     const handleData = (data) => {
       if (data.error) {
         setGameState(data);
@@ -25,7 +26,12 @@ function GamePage() {
     };
 
     newGame(handleData);
+  };
+
+  useEffect(() => {
+    resetGame();
   }, []);
+
 
   return (
     <div className="gamePageWrapper">
@@ -45,7 +51,7 @@ function GamePage() {
                 setGuessedLetters={setGuessedLetters}
                 guessedLetters={guessedLetters}
               />
-              <GameResultModal gameState={gameState} />
+              <GameResultModal gameState={gameState} onReset={resetGame} />
               <GuessedLetters guessedLetters={guessedLetters} />
             </>
           )}
