@@ -1,15 +1,10 @@
 import React from "react";
 import "./styles.css";
 
-function GameResultModal({ gameState }) {
+function GameResultModal({ gameState, onReset }) {
   const { userLost, userFinished, revealedWord } = gameState;
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
-
   const WonGame = () => <div className="wonGame">YOU WIN!</div>;
-
   const LoseGame = () => <div className="lostGame">YOU LOST!</div>;
 
   return (
@@ -18,13 +13,12 @@ function GameResultModal({ gameState }) {
         <h2>{userLost ? <LoseGame /> : <WonGame />}</h2>
         <p className="wordWas">The word was:</p>
         <p className="word">{revealedWord}</p>
-        <input
+        <button
           autoFocus
-          type="submit"
           className="playAgainButton"
-          value="Play again!"
-          onClick={refreshPage}
-        />
+          onClick={onReset}>
+          Play again!
+          </button>
       </div>
     )
   );
