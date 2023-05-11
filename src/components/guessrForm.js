@@ -7,7 +7,7 @@ function GuessrForm({
   data,
   setGameState,
   guessedLetters,
-  setGuessedLetters,
+  handleGuess,
   maxLength,
 }) {
   const [guess, setGuess] = useState("");
@@ -26,11 +26,9 @@ function GuessrForm({
 
   const submitHandler = (e) => {
     e.preventDefault();
+    handleGuess(guess);
     if (!guessedLetters.includes(guess)) {
       submitGuess(data.id, guess, handleApiData);
-      setGuessedLetters([...guessedLetters, guess]);
-    } else {
-      alert("Already guessed that letter! Stop it.");
     }
     setGuess("");
   };
