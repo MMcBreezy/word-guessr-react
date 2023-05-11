@@ -6,15 +6,18 @@ import { newGame } from "../helpers/apiHelper";
 import RevealedLetters from "../components/revealedLetters";
 import GameResultModal from "../components/gameResultModal";
 import GuessedLetters from "../components/guessedLetters";
+import ToastMessage from "../components/toastMessage";
 
 function GamePage() {
   const [gameState, setGameState] = useState({});
   const [loading, setLoading] = useState(true);
   const [guessedLetters, setGuessedLetters] = useState([]);
+  const [toastMessage, setToastMessage] = useState("");
 
   const resetGame = () => {
     setLoading(true);
     setGuessedLetters([]);
+    setToastMessage("");
     const handleData = (data) => {
       if (data.error) {
         setGameState(data);
@@ -32,9 +35,18 @@ function GamePage() {
     resetGame();
   }, []);
 
+  const handleGuess = (guess) => {
+    const uppercaseGuess = guess.toUpperCase();
+    if (guessedLetters.includes(guess)) {
+      setToastMessage(`You've already guessed "${uppercaseGuess}"!`);
+    } else {
+      setGuessedLetters(prevLetters => [...prevLetters, guess]);
+    }
+  };
 
   return (
     <div className="gamePageWrapper">
+      <ToastMessage message={toastMessage} />
       {loading ? (
         <LogoSpin />
       ) : (
@@ -48,7 +60,7 @@ function GamePage() {
                 maxLength="1"
                 data={gameState}
                 setGameState={setGameState}
-                setGuessedLetters={setGuessedLetters}
+                handleGuess={handleGuess}
                 guessedLetters={guessedLetters}
               />
               <GameResultModal gameState={gameState} onReset={resetGame} />
