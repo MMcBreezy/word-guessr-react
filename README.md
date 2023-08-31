@@ -35,3 +35,4 @@ The Word Guessr React UI employs React Router for navigation. Here's an overview
 
 ##Screenshots
 
+![landing page](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/landing-page.png)
