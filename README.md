@@ -15,7 +15,7 @@ npm install
 npm start
 ```
 
-## Usage
+## Development
 
 Once the development server is up and running, open your web browser and navigate to http://localhost:3000. You will be greeted with the landing page of the Word Guessr game.
 
