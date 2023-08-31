@@ -1,13 +1,6 @@
 # Word Guessr React UI 🕹️
 
-Welcome to the Word Guessr React UI repository! This repository houses the frontend user interface for the Word Guessr game. It provides an engaging platform for players to interact with the Node.js backend API and enjoy the word guessing challenge.
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Routes](#routes)
-- [Contributing](#contributing)
+Welcome to the Word Guessr React UI repository! This repository houses the frontend user interface for the Word Guessr game. Word Guessr uses a Node backend API to handle game logic such as creating new games, tracking game state, and managing guesses. The React UI makes calls to the API based on user input and based on the response, the UI compoents are updated to reflect the game state to the player. You can find the Word Guessr API repository [here](https://github.com/MMcBreezy/word-guessr-api).
 
 ## Installation
 
@@ -31,6 +24,7 @@ Once the development server is up and running, open your web browser and navigat
 The Word Guessr React UI employs React Router for navigation. Here's an overview of the routes used in the application:
 
 / - Landing page
+
 /game - Game page
 
 ## Screenshots
