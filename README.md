@@ -31,24 +31,24 @@ The Word Guessr React UI employs React Router for navigation. Here's an overview
 
 ### Landing Page 🛬
 
-![landing page](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/landing-page.png)
+![landing page](https://github.com/MMcBreezy/word-guessr-react/blob/main/screenshots/landing-page.png)
 
 ### Game Page 🕹
 
-![game page](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/game-page.png)
+![game page](https://github.com/MMcBreezy/word-guessr-react/blob/main/screenshots/game-page.png)
 
 ### Game State UI Example 🎮
 
-![game state example](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/game-in-session.png)
+![game state example](https://github.com/MMcBreezy/word-guessr-react/blob/main/screenshots/game-in-session.png)
 
 ### Duplicate Guess Message ❗️
 
-![duplicate guess message](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/redundant-letter-message.png)
+![duplicate guess message](https://github.com/MMcBreezy/word-guessr-react/blob/main/screenshots/redundant-letter-message.png)
 
 ### User Lost Result 🥺
 
-![user lost result](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/user-lost-modal.png)
+![user lost result](https://github.com/MMcBreezy/word-guessr-react/blob/main/screenshots/user-lost-modal.png)
 
 ### User Won Result 🎉
 
-![user won result](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/user-won-modal.png)
+![user won result](https://github.com/MMcBreezy/word-guessr-react/blob/main/screenshots/user-won-modal.png)
