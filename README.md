@@ -33,6 +33,22 @@ The Word Guessr React UI employs React Router for navigation. Here's an overview
 / - Landing page
 /game - Game page
 
-##Screenshots
+## Screenshots
 
+Landing Page 🛬
 ![landing page](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/landing-page.png)
+
+Game Page 🕹
+![game page](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/game-page.png)
+
+Game State UI Example 🎮
+![game state example](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/game-in-session.png)
+
+Duplicate Guess Message ❗️
+![duplicate guess message](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/redundant-letter-message.png)
+
+User Lost Result 🥺
+![user lost result](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/user-lost-modal.png)
+
+User Won Result 🎉
+![user won result](https://github.com/MMcBreezy/word-guessr-react/blob/readme-update/screenshots/user-won-modal.png)
