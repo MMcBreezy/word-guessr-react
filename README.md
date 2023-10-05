@@ -17,6 +17,8 @@ npm start
 
 ## Development
 
+If running the [Word Guessr API server](https://github.com/MMcBreezy/word-guessr-api) locally, in apiHelper.js you will need to point submitGuess to http://localhost:3001/game/${id}/guess and newGame to http://localhost:3001/game.
+
 Once the development server is up and running, open your web browser and navigate to http://localhost:3000. You will be greeted with the landing page of the Word Guessr game.
 
 ## Routes
