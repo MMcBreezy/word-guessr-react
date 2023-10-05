@@ -34,7 +34,7 @@ function GuessrForm({
   };
 
   return (
-    <div>
+    <div className="formContainer">
       <form className="form" onSubmit={submitHandler}>
         <label className="guessTitle">Guess your letter:</label>
         <div>

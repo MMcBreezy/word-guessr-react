@@ -4,6 +4,13 @@
 }
 
 /* Default styles */
+
+.guessedLettersContainer {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
 .guessedLetters,
 .letters {
   display: flex;
@@ -62,6 +69,7 @@ input[type]:focus,
 .playAgainButton {
   color: beige;
   background-color: #282c34;
+  margin-top: 10px;
   border: 2px solid;
   font-size: medium;
   border-radius: 3px;
@@ -91,6 +99,10 @@ input[type]:focus,
 
 .visible {
   visibility: visible;
+}
+
+.formContainer {
+  margin: 20px;
 }
 
 /* Styles for smaller screens */
@@ -232,5 +244,3 @@ input[type]:focus,
 .toastMessage.hidden {
   opacity: 0;
 }
-
-
