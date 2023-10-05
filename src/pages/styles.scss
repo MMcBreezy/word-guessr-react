@@ -11,10 +11,21 @@
     @extend .pageWrapper;
     color: beige;
     font-size: larger;
-    padding: 20% 0 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   .landingPageWrapper {
     @extend .pageWrapper;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
+  .title {
+    font-size: 50px;
+    font-weight: bold;
+  }
